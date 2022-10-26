@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Tabs from './components/Tabs';
+import Message from './components/Message';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [message,setMessage] = useState("")
+  // const tabsArr = ["message 1", "message 2", "message 3"]
+  const tabsArrObj = [{label:"Tab 1", msg: "message 1"},{label:"Tab 2", msg: "message 2"}, {label:"Tab 3", msg: "message 3"}]
+  const currentMessage = (msg) => {
+    setMessage(msg)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {/* <Tabs tabsArr={tabsArrObj}/> */}
+    <Tabs tabsArr={tabsArrObj} currentMessage={currentMessage}/>
+    <Message msg={message}/>
+
     </div>
   );
 }
